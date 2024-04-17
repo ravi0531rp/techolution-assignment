@@ -1,5 +1,6 @@
 # models.py
 
+
 class Book:
     def __init__(self, title, author, isbn):
         if not title or title == "":
@@ -9,17 +10,18 @@ class Book:
         self.author = author
         self.isbn = isbn
         self.checked_out = False
-    
+
     def to_dict(self):
         return {
             "title": self.title,
             "author": self.author,
             "isbn": self.isbn,
-            "checked_out": self.checked_out
+            "checked_out": self.checked_out,
         }
 
     def __repr__(self):
         return f"Book(title='{self.title}', author='{self.author}', isbn='{self.isbn}', checked_out={self.checked_out})"
+
 
 class User:
     def __init__(self, name, user_id):
@@ -30,13 +32,11 @@ class User:
         self.user_id = user_id
 
     def to_dict(self):
-        return {
-            "name": self.name,
-            "user_id": self.user_id
-        }
+        return {"name": self.name, "user_id": self.user_id}
 
     def __repr__(self):
         return str(self.to_dict())
+
 
 class Checkout:
     def __init__(self, user_id, isbn):
@@ -48,7 +48,7 @@ class Checkout:
         return {
             "user_id": self.user_id,
             "isbn": self.isbn,
-            "checked_out": self.checked_out
+            "checked_out": self.checked_out,
         }
 
     def __repr__(self):
