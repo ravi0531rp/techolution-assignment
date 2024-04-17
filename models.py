@@ -35,6 +35,9 @@ class User:
             "user_id": self.user_id
         }
 
+    def __repr__(self):
+        return str(self.to_dict())
+
 class Checkout:
     def __init__(self, user_id, isbn):
         self.user_id = user_id
@@ -47,3 +50,6 @@ class Checkout:
             "isbn": self.isbn,
             "checked_out": self.checked_out
         }
+
+    def __repr__(self):
+        return f"Checkout(user_id='{self.user_id}', isbn='{self.isbn}', checked_out={self.checked_out})"

@@ -6,10 +6,16 @@ class UserManager:
         self.filename = filename
         self.users = [User(**user_data) for user_data in load_data(filename)]
     
-    def add_user(self, name, user_id):
+    def add_user(self, name):
         if not name:
             print("Error: User name cannot be empty")
             return "not saved"
+        
+        # Find the next available user ID
+        existing_ids = [int(user.user_id) for user in self.users]
+        next_id = max(existing_ids, default=0) + 1
+        
+        user_id = str(next_id)
         user = User(name, user_id)
         self.users.append(user)
         save_data([user.to_dict() for user in self.users], self.filename)

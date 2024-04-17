@@ -97,8 +97,7 @@ def main():
                 user_choice = user_menu()
                 if user_choice == '1':
                     name = input("Enter name: ")
-                    user_id = input("Enter user ID: ")
-                    saved_user = user_manager.add_user(name, user_id)
+                    saved_user = user_manager.add_user(name)
                     if saved_user == "saved":
                         print("User added.")
                 elif user_choice == '2':
