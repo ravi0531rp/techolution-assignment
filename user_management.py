@@ -7,9 +7,13 @@ class UserManager:
         self.users = [User(**user_data) for user_data in load_data(filename)]
     
     def add_user(self, name, user_id):
+        if not name:
+            print("Error: User name cannot be empty")
+            return "not saved"
         user = User(name, user_id)
         self.users.append(user)
         save_data([user.to_dict() for user in self.users], self.filename)
+        return "saved"
     
     def update_user(self, user_id, new_name=None):
         for user in self.users:

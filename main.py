@@ -57,8 +57,9 @@ def main():
                     title = input("Enter title: ")
                     author = input("Enter author: ")
                     isbn = input("Enter ISBN: ")
-                    book_manager.add_book(title, author, isbn)
-                    print("Book added.")
+                    save_status = book_manager.add_book(title, author, isbn)
+                    if save_status == "saved":
+                        print("Book added.")
                 elif book_choice == '2':
                     isbn = input("Enter ISBN of the book to update: ")
                     new_title = input("Enter new title (leave blank to keep current): ")
@@ -97,8 +98,9 @@ def main():
                 if user_choice == '1':
                     name = input("Enter name: ")
                     user_id = input("Enter user ID: ")
-                    user_manager.add_user(name, user_id)
-                    print("User added.")
+                    saved_user = user_manager.add_user(name, user_id)
+                    if saved_user == "saved":
+                        print("User added.")
                 elif user_choice == '2':
                     user_id = input("Enter user ID of the user to update: ")
                     new_name = input("Enter new name (leave blank to keep current): ")

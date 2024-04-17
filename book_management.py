@@ -7,9 +7,13 @@ class BookManager:
         self.books = [Book(**book_data) for book_data in load_data(filename)]
     
     def add_book(self, title, author, isbn):
+        if not title:
+            print("Error: Title cannot be empty")
+            return "not saved"
         book = Book(title, author, isbn)
         self.books.append(book)
         save_data([book.to_dict() for book in self.books], self.filename)
+        return "saved"
     
     def update_book(self, isbn, new_title=None, new_author=None):
         for book in self.books:
