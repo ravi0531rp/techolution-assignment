@@ -1,3 +1,23 @@
+# Assignment
+
+* To run the application, please run the following command at root level
+
+```sh
+python main.py 
+```
+* For running test cases, please run the following command at root level
+
+```sh
+pytest
+
+```
+
+## Modules and Classes
+
+* management -> Contains all the management classes for Books, Checkout and users
+* handlers -> Contains all the event handlers for UI
+* models -> Contains all the datamodels for Book, User and Checkout
+
 ## TASKS
 
 - [X] Basic Implementation
