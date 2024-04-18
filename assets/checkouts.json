@@ -1,0 +1,22 @@
+[
+    {
+        "user_id": "2",
+        "isbn": "ui89",
+        "checked_out": false
+    },
+    {
+        "user_id": "2",
+        "isbn": "ui89",
+        "checked_out": true
+    },
+    {
+        "user_id": "2",
+        "isbn": "ui89",
+        "checked_out": true
+    },
+    {
+        "user_id": "2",
+        "isbn": "ww",
+        "checked_out": false
+    }
+]

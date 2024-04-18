@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Physics",
+        "author": "HC Verma",
+        "isbn": "ww",
+        "checked_out": false
+    },
+    {
+        "title": "Mat",
+        "author": "me",
+        "isbn": "23",
+        "checked_out": false
+    },
+    {
+        "title": "Chemistry",
+        "author": "op tandon",
+        "isbn": "ui89",
+        "checked_out": false
+    },
+    {
+        "title": "C++ Advanced",
+        "author": "Ravi",
+        "isbn": "C1234",
+        "checked_out": false
+    },
+    {
+        "title": "Bio",
+        "author": "RP",
+        "isbn": "12344",
+        "checked_out": false
+    },
+    {
+        "title": "OP",
+        "author": "",
+        "isbn": "234567",
+        "checked_out": false
+    },
+    {
+        "title": "Mathematica",
+        "author": "",
+        "isbn": "23244768",
+        "checked_out": false
+    }
+]

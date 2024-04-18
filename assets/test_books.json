@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Book 2",
+        "author": "Author 2",
+        "isbn": "0987654321",
+        "checked_out": false
+    },
+    {
+        "title": "Machine Learning",
+        "author": "Jane Smith",
+        "isbn": "0987654321",
+        "checked_out": false
+    },
+    {
+        "title": "Book 1",
+        "author": "Author 1",
+        "isbn": "1234567890",
+        "checked_out": false
+    },
+    {
+        "title": "Book 2",
+        "author": "Author 2",
+        "isbn": "0987654321",
+        "checked_out": false
+    },
+    {
+        "title": "Python Programming",
+        "author": "John Doe",
+        "isbn": "1234567890",
+        "checked_out": false
+    },
+    {
+        "title": "Machine Learning",
+        "author": "Jane Smith",
+        "isbn": "0987654321",
+        "checked_out": false
+    }
+]
