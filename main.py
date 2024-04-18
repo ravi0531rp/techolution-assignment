@@ -1,13 +1,14 @@
 from book_management import BookManager
 from checkout_management import CheckoutManager
 from user_management import UserManager
-from utils import book_menu, checkout_menu, main_menu, user_menu
+from utils import (book_menu, check_non_empty, check_valid_options,
+                   checkout_menu, main_menu, user_menu)
 
 
 def main():
     book_manager = BookManager("books.json")
     user_manager = UserManager("users.json")
-    checkout_manager = CheckoutManager("checkouts.json")
+    checkout_manager = CheckoutManager("checkouts.json", user_manager, book_manager)
 
     while True:
         choice = main_menu()
@@ -19,9 +20,12 @@ def main():
                     title = input("Enter title: ")
                     author = input("Enter author: ")
                     isbn = input("Enter ISBN: ")
-                    save_status = book_manager.add_book(title, author, isbn)
-                    if save_status == "saved":
-                        print("Book added.")
+                    if check_non_empty(isbn) and check_non_empty(title):
+                        save_status = book_manager.add_book(title, author, isbn)
+                        if save_status == "saved":
+                            print("Book added.")
+                    else:
+                        print("Book Title or ISBN cannot be empty.")
                 elif book_choice == "2":
                     isbn = input("Enter ISBN of the book to update: ")
                     new_title = input("Enter new title (leave blank to keep current): ")
@@ -45,14 +49,18 @@ def main():
                     search_by = input(
                         "Enter attribute to search by (title/author/isbn): "
                     )
-                    value = input("Enter value to search for: ")
-                    results = book_manager.search_books(**{search_by: value})
-                    if results:
-                        print("\nSearch Results:")
-                        for book in results:
-                            print(book)
+                    if not check_valid_options(search_by, ["title", "author", "isbn"]):
+                        print("Invalid choice, please try again.")
                     else:
-                        print("No books found.")
+                        value = input("Enter value to search for: ")
+
+                        results = book_manager.search_books(**{search_by: value})
+                        if results:
+                            print("\nSearch Results:")
+                            for book in results:
+                                print(book)
+                        else:
+                            print("No books found.")
                 elif book_choice == "6":
                     break
                 else:
@@ -84,14 +92,17 @@ def main():
                     user_manager.list_users()
                 elif user_choice == "5":
                     search_by = input("Enter attribute to search by (name/user_id): ")
-                    value = input("Enter value to search for: ")
-                    results = user_manager.search_users(**{search_by: value})
-                    if results:
-                        print("\nSearch Results:")
-                        for user in results:
-                            print(user)
+                    if not check_valid_options(search_by, ["name", "user_id"]):
+                        print("Invalid choice, please try again.")
                     else:
-                        print("No users found.")
+                        value = input("Enter value to search for: ")
+                        results = user_manager.search_users(**{search_by: value})
+                        if results:
+                            print("\nSearch Results:")
+                            for user in results:
+                                print(user)
+                        else:
+                            print("No users found.")
                 elif user_choice == "6":
                     break
                 else:
@@ -103,8 +114,11 @@ def main():
                 if checkout_choice == "1":
                     user_id = input("Enter user ID: ")
                     isbn = input("Enter ISBN of the book to checkout: ")
-                    checkout_manager.checkout_book(user_id, isbn)
-                    print("Book checked out.")
+                    checked_out = checkout_manager.checkout_book(user_id, isbn)
+                    if checked_out:
+                        print("Book checked out.")
+                    else:
+                        print("Error. Please Check the details..")
                 elif checkout_choice == "2":
                     user_id = input("Enter user ID: ")
                     isbn = input("Enter ISBN of the book to checkin: ")
