@@ -40,3 +40,13 @@ def checkout_menu():
     print("4. Back to Main Menu")
     choice = input("Enter choice: ")
     return choice
+
+def check_non_empty(text):
+    if text == '':
+        return False
+    return True
+
+def check_valid_options(key, lst):
+    if key in lst:
+        return True
+    return False
