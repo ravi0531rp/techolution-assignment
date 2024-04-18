@@ -1,6 +1,4 @@
-from book_management import BookManager
-from checkout_management import CheckoutManager
-from user_management import UserManager
+from management import BookManager, UserManager, CheckoutManager
 from utils import book_menu, checkout_menu, main_menu, user_menu
 
 from handlers import handle_book_menu, handle_checkout_menu, handle_user_menu
