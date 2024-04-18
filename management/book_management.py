@@ -71,9 +71,14 @@ class BookManager:
             isbn (str): The ISBN of the book to delete.
         """
         # Filtering out the book with the provided ISBN and updating the list
+        orig_length = len(self.books)
         self.books = [book for book in self.books if book.isbn != isbn]
+        new_length = len(self.books)
         # Saving the updated list of books to the file
         save_data([book.to_dict() for book in self.books], self.filename)
+        if orig_length > new_length:
+            return True
+        return False
         
     def list_books(self):
         """Lists all the books in the collection."""

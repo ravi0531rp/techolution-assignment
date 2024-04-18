@@ -67,9 +67,15 @@ class UserManager:
         Args:
             user_id (str): The ID of the user to be deleted.
         """
+        orig_length = len(self.users)
         self.users = [user for user in self.users if user.user_id != user_id]
+        new_length = len(self.users)
+
         # Saving the updated user data to the file
         save_data([user.to_dict() for user in self.users], self.filename)
+        if orig_length > new_length:
+            return True
+        return False
 
     def list_users(self):
         """Lists all the users."""
