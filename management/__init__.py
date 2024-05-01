@@ -1,7 +1,7 @@
 # management/__init__.py
 
-from .book_management import *
-from .checkout_management import *
-from .user_management import *
+from .book_manager import *
+from .checkout_manager import *
+from .user_manager import *
 
 __all__ = ['BookManager', 'CheckoutManager', 'UserManager']
